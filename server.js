@@ -4,7 +4,7 @@ import express from "express";
 import errorsHandler from "./middlewares/errorsHandler.js";
 import notFound from "./middlewares/notFound.js";
 import corsPolicy from "./middlewares/corsPolicy.js";
-import examplesRouter from "./routes/examples.js";
+import booksRouter from "./routes/books.js";
 // create a server instance
 const app = express();
 
@@ -22,8 +22,14 @@ app.get("/", (req, res) => {
 });
 
 //other routes
-app.use("/examples", examplesRouter);
+app.use("/books", booksRouter);
+//index = /books lista libri (get) Rtot
+//show = /books/:id singolo libro (get) Rpar
+//store = /books salvo nuovo libro (post) C
+//update = /books/:id aggiorno un libro (put) U
+//destroy = /books/:id elimino un libro (delete) D
 
+//rotte di errore che rispondono con un messaggio json
 app.use(errorsHandler);
 
 app.use(notFound);

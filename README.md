@@ -35,6 +35,7 @@ npm install express
 ```bash
     # per cors
     npm install cors
+    # gia fatto a mano
 ```
 
 ```javascript
